@@ -16,17 +16,12 @@ lazy val root = project.in(file(".")).
 lazy val sodatime = crossProject.in(file(".")).
   settings(
     name := "soda-time",
-    version := "0.0.1-SNAPSHOT",
+    version := "0.0.1.ss.0",
     organization := "org.mdedetrich",
     publishMavenStyle := true,
-    publishTo := {
-      val nexus = "https://oss.sonatype.org/"
-      if (isSnapshot.value)
-        Some("snapshots" at nexus + "content/repositories/snapshots")
-      else
-        Some("releases"  at nexus + "service/local/staging/deploy/maven2")
-    },
     publishArtifact in Test := false,
+    licenses += ("BSD", url("https://opensource.org/licenses/BSD-2-Clause")),
+    bintrayOrganization := Some("7thsense"),
     pomIncludeRepository := { _ => false },
     pomExtra := <url>https://github.com/mdedetrich/soda-time</url>
       <licenses>
